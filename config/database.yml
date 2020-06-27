@@ -25,3 +25,4 @@ production:
   database: postgresql
   encoding: unicode
   pool: 5
+  timeout: 5000
