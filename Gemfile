@@ -14,6 +14,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -21,6 +25,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop-airbnb'
 end
 
 group :test do
