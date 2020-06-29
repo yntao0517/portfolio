@@ -9,12 +9,5 @@ RSpec.describe "StaticPages", type: :request do
       expect(response).to have_http_status(:success)
       assert_select 'title', "#{base_title}"
     end
-
-    it "returns http success" do
-      get "/static_pages/home"
-      expect(response).to have_http_status(:success)
-      assert_select 'title', "#{base_title}"
-    end
   end
-
 end
