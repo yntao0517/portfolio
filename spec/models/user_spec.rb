@@ -46,5 +46,12 @@ RSpec.describe User, type: :model do
         expect(user).not_to be_valid
       end
     end
+
+    it "メールアドレスは小文字で保存されること" do
+      mixed_case_email = "Foo@ExAMPle.CoM"
+      user.email = mixed_case_email
+      user.save
+      expect(user.email.downcase).to eq user.reload.email
+    end
   end
 end
