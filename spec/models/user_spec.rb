@@ -77,5 +77,20 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user).not_to be_valid
     end
+
+    it "住所が長すぎると存在できないこと" do
+      user.address = "a" * 151
+      expect(user).not_to be_valid
+    end
+
+    it "住所がなければ無効であること" do
+      user.address = ""
+      expect(user).not_to be_valid
+    end
+
+    it "電話番号がなければ無効であること" do
+      user.phone_number = nil
+      expect(user).not_to be_valid
+    end
   end
 end
