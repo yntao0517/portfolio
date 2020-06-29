@@ -53,5 +53,26 @@ RSpec.describe User, type: :model do
       user.save
       expect(user.email.downcase).to eq user.reload.email
     end
+
+    it "パスワードは空白では存在できないこと" do
+      user.password = user.password_confirmation = "" * 6
+      expect(user).not_to be_valid
+    end
+
+    it "パスワードは最小の長さが必要であること" do
+      user.password = user.password_confirmation = "a" * 5
+      expect(user).not_to be_valid
+    end
+
+    it "パスワード確認が一致すれば有効であること" do
+      user = FactoryBot.build(:user, password: "password", password_confirmation: "password")
+      expect(user).to be_valid
+    end
+
+    it "パスワード確認が一致しなければ無効であること" do
+      user = FactoryBot.build(:user, password: "password", password_confirmation: "different")
+      user.valid?
+      expect(user).not_to be_valid
+    end
   end
 end
