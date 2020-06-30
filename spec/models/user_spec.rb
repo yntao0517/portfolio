@@ -92,5 +92,10 @@ RSpec.describe User, type: :model do
       user.phone_number = nil
       expect(user).not_to be_valid
     end
+
+    it "電話番号が数字でなければ無効であること" do
+      user.phone_number = "a"*10
+      expect(user).not_to be_valid
+    end
   end
 end

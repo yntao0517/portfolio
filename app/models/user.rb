@@ -6,7 +6,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :address, presence: true, length: { maximum: 150 }
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, numericality: :only_integer
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 end
