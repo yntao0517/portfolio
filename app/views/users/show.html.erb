@@ -1,2 +1,8 @@
-<%= @user.name %>, <%= @user.email %>,
-<%= @user.address %>, <%= @user.phone_number %>
+<% provide(:title, @user.name) %>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+  <h2>メールアドレス： <%= @user.email %></h2>
+  <h2>住所： <%= @user.address %></h2>
+  <h2>電話番号： <%= @user.phone_number %></h2>
