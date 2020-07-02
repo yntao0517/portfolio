@@ -16,22 +16,28 @@ RSpec.describe "Remember me", type: :request do
 
   context "ログインでremember_meのチェックをしているとき" do
     it "cookiesを覚えていること" do
-      post login_path, params: { session: { email: user.email,
-                                      password: user.password,
-                                      remember_me: '1'} }
-      expect(response.cookies['remember_token']).to_not eq nil
+      post login_path, params: { session: {
+        email: user.email,
+        password: user.password,
+        remember_me: '1',
+      } }
+      expect(response.cookies['remember_token']).not_to eq nil
     end
   end
 
   context "ログインでremember_meのチェックをしていないとき" do
     it "cookiesを覚えていないこと" do
-      post login_path, params: { session: { email: user.email,
-                                      password: user.password,
-                                      remember_me: '1'} }
+      post login_path, params: { session: {
+        email: user.email,
+        password: user.password,
+        remember_me: '1',
+      } }
       delete logout_path
-      post login_path, params: { session: { email: user.email,
-                                      password: user.password,
-                                      remember_me: '0'} }
+      post login_path, params: { session: {
+        email: user.email,
+        password: user.password,
+        remember_me: '0',
+      } }
       expect(response.cookies['remember_token']).to eq nil
     end
   end

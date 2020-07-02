@@ -37,23 +37,23 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(
-        :name, :email, :password, :password_confirmation,
-        :address, :phone_number
-      )
-    end
+  def user_params
+    params.require(:user).permit(
+      :name, :email, :password, :password_confirmation,
+      :address, :phone_number
+    )
+  end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください"
-        redirect_to login_url
-      end
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "ログインしてください"
+      redirect_to login_url
     end
+  end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 end
