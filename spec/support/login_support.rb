@@ -1,7 +1,7 @@
 module LoginSupport
   def valid_login(user)
     visit root_path
-    click_link "ログイン"
+    click_link "ユーザーログイン"
     fill_in "メールアドレス", with: user.email
     fill_in "パスワード", with: user.password
     click_button "ログイン"

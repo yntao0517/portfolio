@@ -5,7 +5,7 @@ RSpec.feature "UserSignUps", type: :feature do
 
   scenario "ユーザーが新規登録に成功する" do
     visit root_path
-    click_link "新規登録"
+    click_link "ユーザー新規登録"
 
     perform_job do
       expect do

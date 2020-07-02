@@ -7,7 +7,8 @@
         <% if logged_in? %>
           <li><%= link_to "マイページ", current_user %></li>
         <% else %>
-          <li><%= link_to "ログイン", login_path %></li>
+          <li><%= link_to "病院ログイン", "#" %></li>
+          <li><%= link_to "ユーザーログイン", login_path %></li>
         <% end %>
       </ul>
     </nav>
