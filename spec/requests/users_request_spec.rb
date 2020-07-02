@@ -82,4 +82,13 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+
+  describe "#destroy" do
+    it "ユーザーを削除できること" do
+      sign_in_as user
+      expect {
+        delete user_path(user), params: { id: user.id }
+    }.to change(User, :count).by(-1)
+    end
+  end
 end
