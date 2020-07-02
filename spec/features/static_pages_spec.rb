@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "StaticPages", type: :feature do
-  describe do
+  describe "HomePage" do
     before do
       visit root_path
     end
