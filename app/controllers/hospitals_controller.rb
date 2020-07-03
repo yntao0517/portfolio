@@ -10,6 +10,7 @@ class HospitalsController < ApplicationController
   def create
     @hospital = Hospital.new(hospital_params)
     if @hospital.save
+      hospital_log_in @hospital
       flash[:success] = "Welcome to the Coid"
       redirect_to @hospital
     else
