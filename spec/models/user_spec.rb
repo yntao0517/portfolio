@@ -18,6 +18,11 @@ RSpec.describe User, type: :model do
       expect(user).not_to be_valid
     end
 
+    it "メールアドレスがなければ無効な状態であること" do
+      user.email = nil
+      expect(user).not_to be_valid
+    end
+
     it "メールアドレスが長すぎると無効な状態であること" do
       user.email = "a" * 244 + "@example.com"
       expect(user).not_to be_valid
