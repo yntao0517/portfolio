@@ -8,4 +8,6 @@ class Hospital < ApplicationRecord
   validates :address, presence: true, length: { maximum: 150 }
   validates :phone_number, presence: true, numericality: :only_integer
   validates :representative, presence: true, length: { maximum: 50 }
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }
 end

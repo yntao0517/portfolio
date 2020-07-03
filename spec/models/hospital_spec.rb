@@ -90,4 +90,26 @@ RSpec.describe Hospital, type: :model do
     hospital.representative = "a" * 51
     expect(hospital).not_to be_valid
   end
+
+  it "パスワードは空白では存在できないこと" do
+    hospital.password = hospital.password_confirmation = "" * 6
+    expect(hospital).not_to be_valid
+  end
+
+  it "パスワードは最小の長さが必要であること" do
+    hospital.password = hospital.password_confirmation = "a" * 5
+    expect(hospital).not_to be_valid
+  end
+
+  it "パスワード確認が一致すれば有効であること" do
+    hospital = FactoryBot.build(:hospital, password: "password", 
+    password_confirmation: "password")
+    expect(hospital).to be_valid
+  end
+
+  it "パスワード確認が一致しなければ無効であること" do
+    hospital = FactoryBot.build(:hospital, password: "password", 
+    password_confirmation: "different")
+    expect(hospital).not_to be_valid
+  end
 end
