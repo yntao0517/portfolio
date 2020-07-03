@@ -1,0 +1,20 @@
+<% provide(:title, @hospital.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @hospital %>
+        <%= @hospital.name %>
+      </h1>
+      <p>メールアドレス： <%= @hospital.email %></p>
+      <p>住所： <%= @hospital.address %></p>
+      <p>電話番号： <%= @hospital.phone_number %></p>
+    </section>
+  </aside>
+</div>
+<div>
+  <%= link_to "プロフィール変更", "#" %>
+</div>
+<div>
+  <%= link_to "ログアウト", "#", method: :delete %>
+</div>
