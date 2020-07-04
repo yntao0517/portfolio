@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_072000) do
+ActiveRecord::Schema.define(version: 2020_07_04_110532) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2020_07_04_072000) do
     t.string "password_digest"
     t.string "remember_digest"
     t.index ["email"], name: "index_hospitals_on_email", unique: true
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "price"
+    t.string "image_url"
+    t.string "item_code"
+    t.string "item_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
