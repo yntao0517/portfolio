@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/hospital_login',       to: 'hospital_sessions#new'
   post '/hospital_login',      to: 'hospital_sessions#create'
   delete '/hospital_logout',   to: 'hospital_sessions#destroy'
+  get '/search',               to: 'items#search'
   resources :users
   resources :hospitals
 end
