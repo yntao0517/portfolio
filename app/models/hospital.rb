@@ -13,12 +13,8 @@ class Hospital < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   def Hospital.digest(string)
-    cost = if ActiveModel::SecurePassword.min_cost
-             BCrypt::Engine::MIN_COST
-           else
-              BCrypt::Engine.cost
-              BCrypt::Password.create(string, cost: cost)
-           end
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
   end
 
   def Hospital.new_token
