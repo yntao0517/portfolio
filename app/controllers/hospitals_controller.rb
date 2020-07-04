@@ -18,6 +18,20 @@ class HospitalsController < ApplicationController
     end
   end
 
+  def edit
+    @hospital = Hospital.find(params[:id])
+  end
+
+  def update
+    @hospital = Hospital.find(params[:id])
+    if @hospital.update_attributes(hospital_params)
+      flash[:success] = "プロフィールを更新しました"
+      redirect_to @hospital
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def hospital_params

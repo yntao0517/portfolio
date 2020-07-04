@@ -10,7 +10,7 @@ class Hospital < ApplicationRecord
   validates :phone_number, presence: true, numericality: :only_integer
   validates :representative, presence: true, length: { maximum: 50 }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def Hospital.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
