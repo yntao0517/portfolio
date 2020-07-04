@@ -9,4 +9,14 @@ RSpec.describe "Hospitals", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "GET #show" do
+    context "ログイン済みの病院の場合" do
+      it "正常なレスポンスを返すこと" do
+        hospital_sign_in_as hospital
+        get hospital_path(hospital)
+        expect(response).to be_successful
+      end
+    end
+  end
 end

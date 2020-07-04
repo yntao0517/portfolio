@@ -13,3 +13,10 @@ def sign_in_as(user)
     password: user.password,
   } }
 end
+
+def hospital_sign_in_as(user)
+  post hospital_login_path, params: { session: {
+    email: hospital.email,
+    password: hospital.password,
+  } }
+end
