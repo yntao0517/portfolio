@@ -6,6 +6,7 @@ class HospitalSessionsController < ApplicationController
     hospital = Hospital.find_by(email: params[:session][:email].downcase)
     if hospital && hospital.authenticate(params[:session][:password])
       hospital_log_in hospital
+      params[:session][:remember_me] == '1' ? hospital_remember(hospital) : forget(hospital)
       redirect_to hospital
     else
       flash.now[:danger] = "メールアドレスまたはパスワードが正しくありません。"
@@ -14,7 +15,7 @@ class HospitalSessionsController < ApplicationController
   end
 
   def destroy
-    hospital_log_out
+    hospital_log_out if hospital_logged_in?
     redirect_to root_url
   end
 end
