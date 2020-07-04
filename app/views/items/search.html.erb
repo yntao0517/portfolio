@@ -10,12 +10,6 @@
 <h2>検索結果</h2>
 <% if @items.present? %>
   <% @items.each do |item| %>
-    <div class="list">
-    <% if item.image_url %>
-      <%= link_to (image_tag(item.image_url, style: "width: 70px;height: 100px;display: inline-block;")), item.url %>
-      <% end %>
- 
-      <%= item.title %>
-    </div>
+    puts "#{item['itemName']}, #{item.price} yen"
   <% end %>
 <% end %>
