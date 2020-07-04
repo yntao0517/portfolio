@@ -10,6 +10,8 @@
 <h2>検索結果</h2>
 <% if @items.present? %>
   <% @items.each do |item| %>
-    puts "#{item['itemName']}, #{item.price} yen"
+    <%= item.name %>
+    <%= item.url %>
+    <%= item["mediumImageUrls"][0] %>
   <% end %>
 <% end %>
