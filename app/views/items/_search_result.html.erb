@@ -2,7 +2,7 @@
   <h3>検索結果</h3>
   <div class="row">
     <div class="col-sm-6 col-md-3">
-      <div class="card img-thmubnail">
+      <div class="card img-thumbnail">
         <% @items.first(10).each do |item| %>
           <% if item['mediumImageUrls'].present? %>
             <img src="<%= item['mediumImageUrls'][0] %>" class="card-img-top" alt="画像" >
@@ -10,10 +10,8 @@
             <p>No Image</p>
           <% end %>
             <div class="card-body">
-              <p class="card-text">
-                <%= item.name %>
-                <%= item.price %>円
-              </p>
+              <p class="card-text"><%= item.name %></p>
+              <p class="card-text"><%= item.price %>円</p>
             </div>
           <div class="buttons">
             <a href="<%= item['itemUrl'] %>" target="_blank">
