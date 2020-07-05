@@ -1,37 +1,39 @@
 <% if @items.present? %>
   <h3>検索結果</h3>
-  <div>
-    <% @items.first(10).each do |item| %>
-      <div class="item-box">
-        <div class="img">
-          <div class="img-wrap">
-            <% if item['mediumImageUrls'].present? %>
-              <img src="<%= item['mediumImageUrls'][0] %>" class="card-img-top" alt="画像" >
-            <% else %>
-              <p>No Image</p>
-            <% end %>
-            <div class="card-body">
-              <p class="card-text"><%= item['itemName'].truncate(30) %></p>
-              <p class="card-text"><%= item['itemPrice'] %>円</p>
-            </div>
-            <div class="buttons">
-              <a href="<%= item['itemUrl'] %>" target="_blank">
-                <button class="btn btn-primary">詳細</button>
-              </a>
-              <form action="" method="post">
-                <input type="hidden" name="name" value="<%= item['itemName'] %>">
-                <input type="hidden" name="price" value="<%= item['itemPrice'] %>">
-                <% if item['mediumImageUrls'].present? %>
-                  <input type="hidden" name="image_url" value="<%= item['mediumImageUrls'][0] %>">
-                <% end %>
-                <input type="hidden" name="item_code" value="<%= item['itemCode'] %>">
-                <input type="hidden" name="item_url" value="<%= item['itemUrl'] %>">
-                <input type="submit" value="不足中" class="btn btn-warning">
-              </form>
+  <div class="row">
+    <div>
+      <% @items.first(10).each do |item| %>
+        <div class="item-box">
+          <div class="img">
+            <div class="img-wrap">
+              <% if item['mediumImageUrls'].present? %>
+                <img src="<%= item['mediumImageUrls'][0] %>" class="card-img-top" alt="画像" >
+              <% else %>
+                <p>No Image</p>
+              <% end %>
+              <div class="card-body">
+                <p class="card-text"><%= item['itemName'].truncate(30) %></p>
+                <p class="card-text"><%= item['itemPrice'] %>円</p>
+              </div>
+              <div class="buttons">
+                <a href="<%= item['itemUrl'] %>" target="_blank">
+                  <button class="btn btn-primary">詳細</button>
+                </a>
+                <form action="" method="post">
+                  <input type="hidden" name="name" value="<%= item['itemName'] %>">
+                  <input type="hidden" name="price" value="<%= item['itemPrice'] %>">
+                  <% if item['mediumImageUrls'].present? %>
+                    <input type="hidden" name="image_url" value="<%= item['mediumImageUrls'][0] %>">
+                  <% end %>
+                  <input type="hidden" name="item_code" value="<%= item['itemCode'] %>">
+                  <input type="hidden" name="item_url" value="<%= item['itemUrl'] %>">
+                  <input type="submit" value="不足中" class="btn btn-warning">
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>
