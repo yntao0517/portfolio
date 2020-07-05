@@ -3,14 +3,14 @@
   <div class="row">
     <div class="col-sm-6 col-md-3">
       <div class="card img-thmubnail">
-        <%= @items.first(10).each do |item| %>
-          <% if item['mediumImageUrls'].present? %>
-            <img src="<%= item['mediumImageUrls'].first['imageUrl'] %>" class="card-img-top" alt="画像" >
+        <% @items.first(10).each do |item| %>
+          <% unless item['mediumImageUrls'].empty? %>
+            <img src="<%= item['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128', '?_ex=200x200')%>" class="card-img-top" alt="画像" >
           <% else %>
             <p>No Image</p>
           <% end %>
           <%= item.name %>
-          <%= item.price %>
+          <%= item.price %>円
           <div class="buttons">
             <a href="<%= item['itemUrl'] %>" target="_blank">
               <button class="btn btn-primary">詳細</button>
