@@ -2,10 +2,10 @@
   <h3>検索結果</h3>
   <div class="row">
     <div class="col-sm-6 col-md-3">
-      <div class="card img-thmubnail">
+      <div>
         <% @items.first(10).each do |item| %>
-          <% unless item['mediumImageUrls'].empty? %>
-            <img src="<%= item['mediumImageUrls'].first['imageUrl'] %>" class="card-img-top" alt="画像" >
+          <% if item['mediumImageUrls'].present? %>
+            <img src="<%= item['mediumImageUrls'][0] %>" alt="画像" >
           <% else %>
             <p>No Image</p>
           <% end %>
