@@ -12,7 +12,7 @@
                 <p>No Image</p>
               <% end %>
               <div class="card-body">
-                <p class="card-text"><%= item.name %></p>
+                <p class="card-text"><%= item.name.truncate(30) %></p>
                 <p class="card-text"><%= item.price %>円</p>
               </div>
               <div class="buttons">
