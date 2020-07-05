@@ -1,17 +1,10 @@
-<div class="col-sm-offset-1 col-sm-11 page-head">
+<div>
   <h1>必要物資検索画面</h1>
 </div>
 <div id="search-box">
   <%= form_tag('/search', method: :get) do %>
-    <%= text_field_tag :item, "", id: "item_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px;" %><button title="検索", type="submit">検索</button>
+    <%= text_field_tag :item, "", id: "item_search", name: "keyword", placeholder: "キーワードを打ち込んでください", class: "form-control" %><button title="検索" type="submit" class="btn btn-primary">検索</button>
   <% end %>
 </div>
 
-<h2>検索結果</h2>
-<% if @items.present? %>
-  <% @items.each do |item| %>
-    <%= item.name %>
-    <%= item.url %>
-    <%= item["mediumImageUrls"][0] %>
-  <% end %>
-<% end %>
+<%= render 'search_result' %>
