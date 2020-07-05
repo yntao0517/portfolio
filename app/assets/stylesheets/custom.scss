@@ -177,3 +177,32 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
 }
+
+.item_box {
+  width: 250px;
+  margin: 15px;
+  float: left;
+  box-shadow: 0 1px 1px rgba(255,0,0,0.1);
+  position: relative;
+}
+
+.item-box .img {
+  width: 250px;
+  height: 250px;
+  display: table;
+  border: 1px solid #ddd;
+  border-top-right-radius: 3%;
+  border-top-left-radius: 3%;
+}
+
+.item-box .img .img-wrap {
+  width: 250px;
+  height: 259px! important;
+  padding: 10px;
+  display: table-cell;
+  text-align: center;
+}
+
+.item-box .img .img-wrap img {
+  max-height: 250px;
+}
