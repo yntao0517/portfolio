@@ -1,7 +1,7 @@
 <% if @items.present? %>
   <h3>検索結果</h3>
   <div class="row">
-    <div class="col-sm-6 col-md-3">
+    <div class="col-sm-6 col-md-3 d-flex flex-row">
       <% @items.first(10).each do |item| %>
         <div class="card img-thumbnail">
           <% if item['mediumImageUrls'].present? %>
