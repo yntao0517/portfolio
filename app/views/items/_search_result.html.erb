@@ -5,7 +5,7 @@
       <div class="card img-thmubnail">
         <% @items.first(10).each do |item| %>
           <% unless item['mediumImageUrls'].empty? %>
-            <img src="<%= item['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128', '?_ex=200x200')%>" class="card-img-top" alt="画像" >
+            <img src="<%= item['mediumImageUrls'].first['imageUrl'] %>" class="card-img-top" alt="画像" >
           <% else %>
             <p>No Image</p>
           <% end %>
