@@ -21,9 +21,9 @@
                 </a>
                 <form action="" method="post">
                   <input type="hidden" name="name" value="<%= item['itemName'] %>">
-                  <input type="hidden" name="price" value="<%= item['item['itemPrice'] %>">
+                  <input type="hidden" name="price" value="<%= item['itemPrice'] %>">
                   <% if item['mediumImageUrls'].present? %>
-                    <input type="hidden" name="image_url" value="<%= item['item['mediumImageUrls'][0] %>">
+                    <input type="hidden" name="image_url" value="<%= item['mediumImageUrls'][0] %>">
                   <% end %>
                   <input type="hidden" name="item_code" value="<%= item['itemCode'] %>">
                   <input type="hidden" name="item_url" value="<%= item['itemUrl'] %>">
