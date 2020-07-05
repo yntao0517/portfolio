@@ -2,8 +2,8 @@
   <h3>検索結果</h3>
   <div class="row">
     <div class="col-sm-6 col-md-3">
-      <div class="card img-thumbnail">
-        <% @items.first(10).each do |item| %>
+      <% @items.first(10).each do |item| %>
+        <div class="card img-thumbnail">
           <% if item['mediumImageUrls'].present? %>
             <img src="<%= item['mediumImageUrls'][0] %>" class="card-img-top" alt="画像" >
           <% else %>
@@ -18,8 +18,8 @@
               <button class="btn btn-primary">詳細</button>
             </a>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>
