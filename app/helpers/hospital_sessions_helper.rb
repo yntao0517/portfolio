@@ -10,6 +10,10 @@ module HospitalSessionsHelper
     cookies.permanent[:remember_token] = hospital.remember_token
   end
 
+  def current_hospital?(hospital)
+    hospital = current_hospital
+  end
+
   def current_hospital
     if (hospital_id = session[:hospital_id])
       @current_hospital ||= Hospital.find_by(id: hospital_id)

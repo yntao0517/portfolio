@@ -1,4 +1,6 @@
 class HospitalsController < ApplicationController
+  before_action :logged_in_hospital, only [:edit, :update]
+  
   def show
     @hospital = Hospital.find(params[:id])
   end
@@ -38,5 +40,16 @@ class HospitalsController < ApplicationController
     params.require(:hospital).permit(:name, :email, :password,
                                      :password_confirmation, :address,
                                      :phone_number, :representative)
+  end
+
+  def logged_in_hospital
+    unless hospital_log_in?
+      flash[:danger] = "ログインしてください"
+      redirect_to hospital_login_path
+  end
+
+  def correct_hospital
+    @hospital = Hospital.find(params[:id])
+    redirect_to(root_url) unless current_hospital?(@hospital)
   end
 end
