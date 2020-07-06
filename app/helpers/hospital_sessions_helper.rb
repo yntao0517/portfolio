@@ -40,4 +40,13 @@ module HospitalSessionsHelper
     session.delete(:hospital_id)
     @current_hospital = nil
   end
+
+  def hospital_redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def hospital_store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 end

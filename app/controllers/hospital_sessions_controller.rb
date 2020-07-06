@@ -7,7 +7,7 @@ class HospitalSessionsController < ApplicationController
     if hospital && hospital.authenticate(params[:session][:password])
       hospital_log_in hospital
       params[:session][:remember_me] == '1' ? hospital_remember(hospital) : forget(hospital)
-      redirect_to hospital
+      hospital_redirect_back_or hospital
     else
       flash.now[:danger] = "メールアドレスまたはパスワードが正しくありません。"
       render 'new'

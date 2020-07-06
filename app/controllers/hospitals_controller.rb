@@ -44,6 +44,7 @@ class HospitalsController < ApplicationController
 
   def logged_in_hospital
     unless hospital_log_in?
+      hospital_store_location
       flash[:danger] = "ログインしてください"
       redirect_to hospital_login_path
   end
