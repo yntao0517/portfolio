@@ -207,7 +207,17 @@ aside {
   max-height: 250px;
 }
 
-.buttons {
+
+
+.buttons form input {
+  width: none;
+}
+
+.div.buttons button {
   display: inline-block;
-  margin: 5px;
+}
+
+div.buttons form{
+  display: inline-block;
+  width: none;
 }
