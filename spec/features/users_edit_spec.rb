@@ -10,10 +10,12 @@ RSpec.feature "UserEdit", type: :feature do
     fill_in "名前", with: "edit"
     fill_in "メールアドレス", with: "edit@example.com"
     fill_in "住所", with: "東京都千代田区霞が関2丁目1-2"
-    fill_in "電話番号", with: "0987654321"
+    fill_in "電話番号", with: "987654321"
     click_button "プロフィール更新"
     expect(current_path).to eq user_path(user)
     expect(user.reload.email).to eq "edit@example.com"
+    expect(user.reload.address).to eq "東京都千代田区霞が関2丁目1-2"
+    expect(user.reload.phone_number).to eq 987654321
   end
 
   scenario "ユーザーは編集に失敗する" do

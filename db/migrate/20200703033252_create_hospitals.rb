@@ -4,7 +4,7 @@ class CreateHospitals < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :address
-      t.string :phone_number
+      t.integer :phone_number
       t.string :representative
 
       t.timestamps

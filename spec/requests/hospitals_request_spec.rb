@@ -57,4 +57,13 @@ RSpec.describe "Hospitals", type: :request do
       end
     end
   end
+
+  describe "#destroy" do
+    it "病院を削除できること" do
+      hospital_sign_in_as hospital
+      expect do
+        delete hospital_path(hospital), params: { id: hospital.id }
+      end.to change(Hospital, :count).by(-1)
+    end
+  end
 end

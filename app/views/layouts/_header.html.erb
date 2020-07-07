@@ -7,7 +7,7 @@
         <% if logged_in? %>
           <li><%= link_to "マイページ", current_user %></li>
         <% elsif hospital_logged_in? %>
-          <li><%= link_to "必要物資追加", search_path%></li>
+          <li><%= link_to "必要物資追加", search_path %></li>
           <li><%= link_to "支援者リスト", "#" %></li>
           <li><%= link_to "チャット", "#" %></li>
           <li><%= link_to "登録病院リスト", "#" %></li>

@@ -1,5 +1,5 @@
 class HospitalsController < ApplicationController
-  before_action :logged_in_hospital, only: [:edit, :update]
+  before_action :logged_in_hospital, only: [:edit, :update, :destroy]
   before_action :correct_hospital, only: [:edit, :update]
 
   def show
@@ -33,6 +33,12 @@ class HospitalsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    Hospital.find(params[:id]).destroy
+    flash[:success] = "病院を削除しました"
+    redirect_to hospitals_url
   end
 
   private
