@@ -3,10 +3,12 @@ require 'rails_helper'
 RSpec.feature "Login", type: :feature do
   let(:hospital) { FactoryBot.create(:hospital) }
 
-  scenario "ログインに成功すること" do
+  scenario "ログインに成功しログアウトすること" do
     hospital_valid_login(hospital)
     expect(current_path).to eq hospital_path(hospital)
     expect(page).not_to have_content "ログイン"
+    click_link "ログアウト"
+    expect(current_path).to eq root_path
   end
 
   scenario "無効な情報ではログインに失敗すること" do

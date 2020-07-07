@@ -1,6 +1,7 @@
 class HospitalsController < ApplicationController
-  before_action :logged_in_hospital, only [:edit, :update]
-  
+  before_action :logged_in_hospital, only: [:edit, :update]
+  before_action :correct_hospital, only: [:edit, :update]
+
   def show
     @hospital = Hospital.find(params[:id])
   end
@@ -43,10 +44,11 @@ class HospitalsController < ApplicationController
   end
 
   def logged_in_hospital
-    unless hospital_log_in?
+    unless hospital_logged_in?
       hospital_store_location
       flash[:danger] = "ログインしてください"
       redirect_to hospital_login_path
+    end
   end
 
   def correct_hospital
