@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/search',               to: 'items#search'
   resources :users
   resources :hospitals
+  resources :hospital_items, only: [:show]
 end

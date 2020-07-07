@@ -1,0 +1,2 @@
+module HospitalItemsHelper
+end
