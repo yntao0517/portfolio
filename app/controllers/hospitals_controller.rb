@@ -1,6 +1,10 @@
 class HospitalsController < ApplicationController
-  before_action :logged_in_hospital, only: [:edit, :update, :destroy]
+  before_action :logged_in_hospital, only: [:index, :edit, :update, :destroy]
   before_action :correct_hospital, only: [:edit, :update]
+
+  def index
+    @hospitals = Hospital.paginate(page: params[:page], per_page: 20)
+  end
 
   def show
     @hospital = Hospital.find(params[:id])

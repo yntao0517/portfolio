@@ -1,0 +1,24 @@
+<% provide(:title, 'All hospitals') %>
+<h1>登録病院リスト</h1>
+
+<%= will_paginate %>
+
+<div class="row">
+  <% @hospitals.each do |hospital| %>
+    <div class="hospital-box">
+      <h3>
+        <%= gravatar_for hospital, size: 50 %>
+        <%= hospital.name %>
+      </h3>
+      <div>
+        <p><span class="glyphicon glyphicon-envelope"> <%= hospital.email %></span></p>
+        <p><span class="glyphicon glyphicon-home"> <%= hospital.address %></span></p>
+        <p><span class="glyphicon glyphicon-earphone"> <%= hospital.phone_number %></span></p>
+        <p><span class="glyphicon glyphicon-user"> <%= hospital.representative %></span></p>
+        <%= link_to "必要物資一覧ページへ", "#" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= will_paginate %>

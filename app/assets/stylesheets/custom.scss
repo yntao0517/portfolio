@@ -182,7 +182,7 @@ aside {
   width: 250px;
   margin: 15px;
   float: left;
-  box-shadow: 0 1px 1px rgba(255,0,0,0.1);
+  box-shadow: 0 1px 1px rgba(255,0,0,0.125);
   position: relative;
 }
 
@@ -190,7 +190,7 @@ aside {
   width: 250px;
   height: 250px;
   display: table;
-  border: 1px solid #ddd;
+  border: 1px solid;
   border-top-right-radius: 3%;
   border-top-left-radius: 3%;
 }
@@ -219,4 +219,21 @@ aside {
 
 div.buttons form{
   display: inline-block;
+}
+
+.hospital-box {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  width: 250px;
+  margin: 15px;
+  float: left;
 }
