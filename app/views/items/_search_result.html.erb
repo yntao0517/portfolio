@@ -16,18 +16,18 @@
                 <p class="card-text"><%= item['itemPrice'] %>円</p>
               </div>
               <div class="buttons">
-                <%= link_to(<%= item['itemUrl'] %>, target: "_blank") do %>
+                <a href="<%= item['itemUrl'] %>" target="_blank">
                   <button class="btn btn-primary">詳細</button>
-                <% end %>
+                </a>
                 <%= form_for @item, url: {action: "update"} do |f| %>
-                  <%= f.hidden_field :name, value: "<%= item['itemName'] %>" %>
-                  <%= f.hidden_field :price, value: "<%= item['itemPrice'] %>" %>
+                  <input type="hidden" name="name" value="<%= item['itemName'] %>">
+                  <input type="hidden" name="price" value="<%= item['itemPrice'] %>">
                   <% if item['mediumImageUrls'].present? %>
-                    <%= f.hidden_field :image_url, value: "<%= item['mediumImageUrls'][0] %>" %>
+                    <input type="hidden" name="image_url" value="<%= item['mediumImageUrls'][0] %>">
                   <% end %>
-                  <%= f.hidden_field :item_code, value: "<%= item['itemCode'] %>" %>
-                  <%= f.hidden_field :item_url, value: "<%= item['itemUrl'] %>" %>
-                  <%= f.submit "不足中", class: "btn btn-warning" %>
+                  <input type="hidden" name="item_code" value="<%= item['itemCode'] %>">
+                  <input type="hidden" name="item_url" value="<%= item['itemUrl'] %>">
+                  <input type="submit" value="不足中" class="btn btn-warning">
                 <% end %>
               </div>
             </div>
