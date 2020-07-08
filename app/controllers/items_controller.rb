@@ -20,6 +20,6 @@ class ItemsController < ApplicationController
     else
       @hospital.items.create(name: params[:name], price: params[:price], image_url: params[:image_url], item_code: params[:item_code], item_url: params[:item_url])
     end
+    redirect back
   end
-  redirect back
 end
