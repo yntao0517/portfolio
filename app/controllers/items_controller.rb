@@ -17,9 +17,10 @@ class ItemsController < ApplicationController
       unless @hospital.items.find_by(item_code: params[:item_code])
         @item.hospitals << @hospital
       end
+      redirect_back(fallback_location: posts_url)
     else
       @hospital.items.create(name: params[:name], price: params[:price], image_url: params[:image_url], item_code: params[:item_code], item_url: params[:item_url])
+      redirect_back(fallback_location: posts_url)
     end
-    redirect back
   end
 end
