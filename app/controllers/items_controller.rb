@@ -12,17 +12,16 @@ skip_before_action :verify_authenticity_token
   end
 
   def shortage
-    @hospital = Hospital.find(session[:hospital])
+    @hospital = Hospital.find(params[:id])
     @item = Item.find_by(item_code: params[:item_code])
 
     if @item
       unless @hospital.items.find_by(item_code: params[:item_code])
         @item.hospitals << @hospital
       end
-      redirect_back(fallback_location: posts_url)
     else
       @hospital.items.create(name: params[:name], price: params[:price], image_url: params[:image_url], item_code: params[:item_code], item_url: params[:item_url])
-      redirect_back(fallback_location: posts_url)
     end
+    redirect_back(fallback_location: root_path)
   end
 end

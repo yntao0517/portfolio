@@ -8,12 +8,9 @@ Rails.application.routes.draw do
   post '/hospital_login',      to: 'hospital_sessions#create'
   delete '/hospital_logout',   to: 'hospital_sessions#destroy'
   get '/search',               to: 'items#search'
+  post '/shortage',            to: 'items#shortage'
   resources :users
   resources :hospitals
   resources :hospital_items, only: [:show]
-  resources :items, only: [:show] do
-    member do
-      post '/shortage',            to: 'items#shortage'
-    end
-  end
+  resources :items, only: [:show]
 end
