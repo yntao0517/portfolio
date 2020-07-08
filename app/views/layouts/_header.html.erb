@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "支援物資一覧", "#" %></li>
+          <li><%= link_to "支援物資一覧", item_path(current_user) %></li>
           <li><%= link_to "チャット", "#" %></li>
           <li><%= link_to "登録病院リスト", hospitals_path %></li>
           <li><%= link_to "マイページ", current_user %></li>
