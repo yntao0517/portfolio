@@ -11,8 +11,8 @@ skip_before_action :verify_authenticity_token
     @user = User.find(params[:id])
   end
 
-  def shortage
-    @hospital = Hospital.find(params[:id])
+  def update
+    @hospital = Hospital.find(session[:hospital])
     @item = Item.find_by(item_code: params[:item_code])
 
     if @item
