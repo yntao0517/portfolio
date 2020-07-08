@@ -12,7 +12,7 @@ skip_before_action :verify_authenticity_token
   end
 
   def shortage
-    @hospital = Hospital.find(session[:hospital])
+    @hospital = Hospital.first
     @item = Item.find_by(item_code: params[:item_code])
 
     if @item
