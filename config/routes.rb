@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :users
   resources :hospitals
   resources :hospital_items, only: [:show]
-  resources :items, only: [:show]
+  resources :items, only: [:show, :update]
 end
