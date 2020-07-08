@@ -15,7 +15,7 @@
         <p><span class="glyphicon glyphicon-home"> <%= hospital.address %></span></p>
         <p><span class="glyphicon glyphicon-earphone"> <%= hospital.phone_number %></span></p>
         <p><span class="glyphicon glyphicon-user"> <%= hospital.representative %></span></p>
-        <%= link_to "必要物資一覧ページへ", "#" %>
+        <%= link_to "必要物資一覧ページへ", hospital_item_path(hospital.id) %>
       </div>
     </div>
   <% end %>

@@ -1,0 +1,46 @@
+<% provide(:title, "Hospital_items_list") %>
+
+<h1><%= @hospital.name %>の必要物資一覧</h1>
+<div class="row">
+  <% if @hospital_items.present? %>
+    <%= @hospital.items.each do |item| %>
+      <div class="item-box">
+        <div class="img">
+          <div class="img-wrap">
+            <% if item.image_url %>
+              <img src="<%= item.image_url %>" alt="商品画像">
+            <% else %>
+              <p>no image</p>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text"><%= item.name %></p>
+              <p class="card-text"><%= item.price %></p>
+            </div>
+            <div class="buttons">
+              <p><a href="<%= item.item_url %>" target="_blank">
+                <button class="btn btn-primary">詳細</button>
+              </a></p>
+              <% if logged_in? %>
+                <form action="" method="post">
+                  <input type="hidden" name="hospital_id" value="<%= @hospital.id %>">
+                  <input type="hidden" name="item_id" value="<%= item.id %>">
+                  <input type="submit" value="支援する" class="btn btn-warning">
+                </form>
+              <% else %>
+                <form action="" method="post">
+                  <input type="hidden" name="hospital_id" value="<%= @hospital.id %>">
+                  <input type="hidden" name="name" value="<%= item.name %>">
+                  <input type="hidden" name="price" value="<%= item.price %>">
+                  <input type="hidden" name="image_url" value="<%= item.image_url %>">
+                  <input type="hidden" name="item_code" value="<%= item.item_url %>">
+                  <input type="hidden" name="item_url" value="<%= item.item_url %>">
+                  <input type="submit" value="不足中" class="btn btn-warning">
+                </form>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
