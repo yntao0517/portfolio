@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_074256) do
+ActiveRecord::Schema.define(version: 2020_07_08_082341) do
 
   create_table "hospital_items", force: :cascade do |t|
     t.integer "hospital_id", null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2020_07_08_074256) do
     t.string "item_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_items", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "hospital_item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hospital_item_id"], name: "index_user_items_on_hospital_item_id"
+    t.index ["user_id"], name: "index_user_items_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
