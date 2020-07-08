@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_110532) do
+ActiveRecord::Schema.define(version: 2020_07_08_074256) do
+
+  create_table "hospital_items", force: :cascade do |t|
+    t.integer "hospital_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hospital_id"], name: "index_hospital_items_on_hospital_id"
+    t.index ["item_id"], name: "index_hospital_items_on_item_id"
+  end
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name"
