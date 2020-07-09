@@ -23,7 +23,7 @@
                   <%= f.hidden_field :name, value: item.name %>
                   <%= f.hidden_field :price, value: item.price %>
                   <% if item['mediumImageUrls'].present? %>
-                    <%= f.hidden_field :image_url, value: item.mediumImageUrls.first %>
+                    <%= f.hidden_field :image_url, value: item.medium_image_urls.first %>
                   <% end %>
                     <%= f.hidden_field :item_code, value: item.code %>
                     <%= f.hidden_field :item_url, value: item.url %>
