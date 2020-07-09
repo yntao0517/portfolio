@@ -14,7 +14,7 @@
             <% end %>
             <div class="card-body">
               <p class="card-text"><%= item.name %></p>
-              <p class="card-text"><%= item.price %></p>
+              <p class="card-text"><%= item.price %>円</p>
             </div>
             <div class="buttons">
               <a href="<%= item.item_url %>" target="_blank">
@@ -34,6 +34,7 @@
                 <%= f.hidden_field :item_code, value: item.code %>
                 <%= f.hidden_field :item_url, value: item.url %>
                 <%= f.submit "不足中", class: "btn btn-warning" %>
+                <% end %>
               <% end %>
             </div>
           </div>
