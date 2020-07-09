@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :items, only: [:show] do
     member do
       post '/shortage',            to: 'items#shortage'
+      post '/support',             to: 'items#support'
     end
   end
 end

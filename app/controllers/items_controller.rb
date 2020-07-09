@@ -25,4 +25,13 @@ skip_before_action :verify_authenticity_token
     end
     redirect_back(fallback_location: root_path)
   end
+
+  def support
+    item = HospitalItem.find_by(item_id: params[:id], hospital_id: params[:hospital_id])
+    @user = User.find(params[:id])
+    unless @user.hospital_items.find_by(item_id: params[:item_id])
+      item.users << @user
+    end
+    redirect_back(fallback_location: root_path)
+  end
 end
