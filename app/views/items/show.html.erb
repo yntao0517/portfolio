@@ -10,19 +10,19 @@
       <div class="img">
         <div class="img-wrap">
           <% if item.image_url %>
-            <img src="<%= item.image_url %>" alt="商品画像">
+            <img src="<%= hospital_item.image_url %>" alt="商品画像">
           <% else %>
             <p>no image</p>
           <% end %>
           <div class="card-body">
-            <p class="card-text"><%= item.name.truncate(30) %></p>
+            <p class="card-text"><%= hospital_item.name.truncate(30) %></p>
             <p class="card-text"><%= hospital.name %>に寄付</p>
           </div>
           <div class="buttons">
-            <a href="<%= item.item_url %>" target="_blank">
+            <a href="<%= hospital_item.item_url %>" target="_blank">
               <button class="btn btn-primary">詳細</button>
             </a>
-            <%= form_with url: delete_item_path(hospital_item.id) do |f| %>
+            <%= form_with url: delete_item_path(current_user) do |f| %>
                 <%= f.submit "キャンセル", class: "btn btn-warning" %>
             <% end %>
           </div>

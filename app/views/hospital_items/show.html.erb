@@ -21,7 +21,7 @@
                 <button class="btn btn-primary">詳細</button>
               </a>
               <% if logged_in? %>
-                <%= form_with url: support_item_path(hospital_item.id) do |f| %>
+                <%= form_with url: support_item_path(current_user) do |f| %>
                 <%= f.hidden_field :hospital_id, value: @hospital.id %>
                 <%= f.hidden_field :item_id, value: item.id %>
                 <%= f.submit "支援する", class: "btn btn-warning" %>
