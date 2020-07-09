@@ -34,4 +34,9 @@ skip_before_action :verify_authenticity_token
     end
     redirect_back(fallback_location: root_path)
   end
+
+  def delete
+    UserItem.find_by(hospital_item_id: params[:id], user_id: params[:id]).destroy
+    redirect_back(fallback_location: root_path)
+  end
 end
