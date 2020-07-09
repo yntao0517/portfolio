@@ -27,7 +27,7 @@ skip_before_action :verify_authenticity_token
   end
 
   def support
-    item = HospitalItem.find_by(item_id: 2, hospital_id: params[:hospital_id])
+    item = HospitalItem.find_by(item_id: , hospital_id: params[:hospital_id])
     @user = User.find(params[:id])
     unless @user.hospital_items.find_by(item_id: params[:item_id])
       item.users << @user
@@ -36,7 +36,7 @@ skip_before_action :verify_authenticity_token
   end
 
   def delete
-    UserItem.find_by(hospital_item_id: params[:id], user_id: params[:id]).destroy
+    UserItem.find_by(hospital_item_id: params[:item_id], user_id: session[:user]).destroy
     redirect_back(fallback_location: root_path)
   end
 end
