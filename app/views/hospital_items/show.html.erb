@@ -31,8 +31,8 @@
                 <%= f.hidden_field :name, value: item.name %>
                 <%= f.hidden_field :price, value: item.price %>
                 <%= f.hidden_field :image_url, value: item.image_url %>
-                <%= f.hidden_field :item_code, value: item.code %>
-                <%= f.hidden_field :item_url, value: item.url %>
+                <%= f.hidden_field :item_code, value: item.item_code %>
+                <%= f.hidden_field :item_url, value: item.item_url %>
                 <%= f.submit "不足中", class: "btn btn-warning" %>
                 <% end %>
               <% end %>
