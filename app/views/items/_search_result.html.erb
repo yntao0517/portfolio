@@ -20,14 +20,14 @@
                   <button class="btn btn-primary">詳細</button>
                 </a>
                 <%= form_with url: shortage_item_path(current_hospital) do |f| %>
-                  <%= f.hidden_field :name, value: "<%= item['itemName'] %>" %>
-                  <%= f.hidden_field :price, value: "<%= item['itemPrice'] %>" %>
+                  <%= f.hidden_field :name, value: <%= item['itemName'] %> %>
+                  <%= f.hidden_field :price, value: <%= item['itemPrice'] %> %>
                   <% if item['mediumImageUrls'].present? %>
-                    <%= f.hidden_field :image_url, value: "<%= item['mediumImageUrls'][0] %>" %>
-                    <%= f.hidden_field :item_code, value: "<%= item['itemCode'] %>" %>
-                    <%= f.hidden_field :item_url, value: "<%= item['itemUrl'] %>" %>
-                    <%= f.submit "不足中", class: "btn btn-warning" %>
+                    <%= f.hidden_field :image_url, value: <%= item['mediumImageUrls'][0] %> %>
                   <% end %>
+                    <%= f.hidden_field :item_code, value: <%= item['itemCode'] %> %>
+                    <%= f.hidden_field :item_url, value: <%= item['itemUrl'] %> %>
+                    <%= f.submit "不足中", class: "btn btn-warning" %>
                 <% end %>
               </div>
             </div>
