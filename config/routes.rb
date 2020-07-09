@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     member do
       post '/shortage',            to: 'items#shortage'
       post '/support',             to: 'items#support'
+      post 'delete',                 to: 'items#delete'
     end
-  end
-  resources :hospital_items, only: [] do
-    post 'delete',                 to: 'items#delete'
   end
 end
