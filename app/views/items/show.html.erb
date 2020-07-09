@@ -22,7 +22,7 @@
             <a href="<%= item.item_url %>" target="_blank">
               <button class="btn btn-primary">詳細</button>
             </a>
-            <%= form_with url: delete_item_path(hospital_item.id) do |f| %>
+            <%= form_with url: delete_item_path(current_user) do |f| %>
                 <%= f.submit "キャンセル", class: "btn btn-warning" %>
             <% end %>
           </div>
