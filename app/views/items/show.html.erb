@@ -2,30 +2,32 @@
 
 <h1><%= @user.name %>の支援表明物資一覧</h1>
 
-<%= @hospital_items.each do |hospital_item| %>
+<div class="row">
+  <% @hospital_items.each do |hospital_item| %>
   <% item = Item.find(hospital_item.item_id) %>
   <% hospital = Hospital.find(hospital_item.hospital_id) %>
-  <div class="item_box">
-    <div class="img">
-      <div class="img-wrap">
-        <% if item.image_url %>
-          <img src="<%= item.image_url %>" alt="商品画像">
-        <% else %>
-          <p>no image</p>
-        <% end %>
-      </div>
-      <div class="card-body">
-        <p class="card-text"><%= item.name.truncate(30) %></p>
-        <p class="card-text"><%= hospital.name %>に寄付</p>
-      </div>
-      <div class="buttons">
-        <a href="<%= item.item_url %>" target="_blank">
-          <button class="btn btn-primary">詳細</button>
-        </a>
-        <form action="" method="post">
-          <input type="submit" value="キャンセル" class="btn btn-warning">
-        </form>
+    <div class="item_box">
+      <div class="img">
+        <div class="img-wrap">
+          <% if item.image_url %>
+            <img src="<%= item.image_url %>" alt="商品画像">
+          <% else %>
+            <p>no image</p>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= item.name.truncate(30) %></p>
+          <p class="card-text"><%= hospital.name %>に寄付</p>
+        </div>
+        <div class="buttons">
+          <a href="<%= item.item_url %>" target="_blank">
+            <button class="btn btn-primary">詳細</button>
+          </a>
+          <form action="" method="post">
+            <input type="submit" value="キャンセル" class="btn btn-warning">
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
