@@ -36,6 +36,7 @@ skip_before_action :verify_authenticity_token
   end
 
   def delete
+    @hospital_item = HospitalItem.find(params[:id])
     UserItem.find_by(hospital_item_id: params[:id], user_id: session[:user]).destroy
     redirect_back(fallback_location: root_path)
   end
