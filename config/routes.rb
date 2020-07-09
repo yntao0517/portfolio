@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   resources :users
   resources :hospitals
   resources :hospital_items, only: [:show]
-  resources :items, only: [:show, :destroy] do
+  resources :items, only: [:show] do
     member do
       post '/shortage',            to: 'items#shortage'
       post '/support',             to: 'items#support'
+      post '/delete',              to: 'items#delete'
     end
   end
 end
