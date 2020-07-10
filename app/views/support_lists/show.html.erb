@@ -22,11 +22,11 @@
               <a href="<%= item.item_url %>" target="_blank">
                 <button class="btn btn-primary">詳細</button>
               </a>
-              <%= form_with url: support_users_path do |f| %>
-                <%= f.hidden_field :item_id, value: item.id %>
-                <%= f.hidden_field :hospital_id, value: @hospital.id %>
-                <%= f.submit "支援者一覧", class: "btn btn-warning" %>
-              <% end %>
+              <form action="/support_users" method="post">
+                <input type="hidden" name="item_id" value="<%= item.id %>">
+                <input type="hidden" name="hospital_id" value="<%= @hospital.id %>">
+                <input type="submit" value="支援者一覧" class="btn btn-warning">
+              </form>
             </div>
           </div>
         </div>
