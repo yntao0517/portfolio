@@ -1,2 +1,0 @@
-class SupportListController < ApplicationController
-end

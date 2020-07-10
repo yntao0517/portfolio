@@ -18,4 +18,5 @@ Rails.application.routes.draw do
       post '/delete',              to: 'items#delete', params: :hospital_item
     end
   end
+  resources :support_lists, only: [:show]
 end
