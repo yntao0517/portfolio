@@ -1,22 +1,25 @@
 <% provide(:title, @user.name) %>
+
 <div class="row">
-  <aside class="col-md-4">
+  <div class="hospital-box">
     <section class="user_info">
-      <h1>
+      <h3>
         <%= gravatar_for @user %>
         <%= @user.name %>
-      </h1>
-      <p>メールアドレス： <%= @user.email %></p>
-      <p>住所： <%= @user.address %></p>
-      <p>電話番号： <%= @user.phone_number %></p>
+      </h3>
+      <div>
+        <p><span class="glyphicon glyphicon-envelope"><%= @user.email %></span></p>
+        <p><span class="glyphicon glyphicon-home"></span><%= @user.address %></p>
+        <p><span class="glyphicon glyphicon-earphone"><%= @user.phone_number %></span></p>
+        <div>
+          <%= link_to "プロフィール変更", edit_user_path(current_user) %>
+        </div>
+        <div>
+          <%= link_to "ログアウト", logout_path, method: :delete %>
+        </div>
+      </div>
     </section>
-  </aside>
-</div>
-<div>
-  <%= link_to "プロフィール変更", edit_user_path(current_user) %>
-</div>
-<div>
-  <%= link_to "ログアウト", logout_path, method: :delete %>
+  </div>
 </div>
 
 
