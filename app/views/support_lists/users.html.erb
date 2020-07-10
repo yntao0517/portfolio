@@ -12,8 +12,8 @@
         <% end %>
         <div class="card-body">
           <p><%= @users.count %>人が支援表明</p>
-          <p><%= @item.name %></p>
-          <p><%= @item.price %></p>
+          <p><%= @item.name.truncate(30) %></p>
+          <p><%= @item.price %>円</p>
         </div>
         <div class="buttons">
           <a href="<%= @item.item_url %>" target="_blank">
@@ -22,11 +22,11 @@
         </div>
       </div>
     </div>
-    <div class="support_list_users">
-      <h3>支援ユーザー一覧</h3>
-      <% @users.each do |user| %>
-        <p><span class="badge badge-info"><%= user.name %></span></p>
-      <% end %>
-    </div>
+  </div>
+  <div class="support_list_users">
+    <h3>支援ユーザー一覧</h3>
+    <% @users.each do |user| %>
+      <p><span class="btn btn-info"><%= user.name %></span></p>
+    <% end %>
   </div>
 </div>
