@@ -22,7 +22,7 @@
               <a href="<%= item.item_url %>" target="_blank">
                 <button class="btn btn-primary">詳細</button>
               </a>
-              <form action="" method="post">
+              <form action="/support_users" method="post">
                 <input type="hidden" name="item_id" value="<%= item.id %>">
                 <input type="hidden" name="hospital_id" value="<%= @hospital.id %>">
                 <input type="submit" value="支援者一覧" class="btn btn-warning">

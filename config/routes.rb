@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     end
   end
   resources :support_lists, only: [:show]
+  post '/support_users',                 to: 'support_lists#users'
 end
