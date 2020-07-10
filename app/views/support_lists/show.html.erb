@@ -13,7 +13,7 @@
               <p>no image</p>
             <% end %>
             <div class="card-body">
-              <% users = HsopitalItem.find_by(item_id: item.id, hospital_id: @hospital.id).users.all %>
+              <% users = HospitalItem.find_by(item_id: item.id, hospital_id: @hospital.id).users.all %>
               <p><%= users.count %>人の支援表明あり</p>
               <p class="card-text"><%= item.name.truncate(30) %></p>
               <p class="card-text"><%= item.price %>円</p>
