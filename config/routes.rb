@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     member do
       post '/shortage',            to: 'items#shortage'
       post '/support',             to: 'items#support'
-      post 'delete',                 to: 'items#delete'
+      post '/delete',              to: 'items#delete', params: :hospital_item
     end
   end
 end

@@ -18,14 +18,16 @@
             <p class="card-text"><%= item.name.truncate(30) %></p>
             <p class="card-text"><%= hospital.name %>に寄付</p>
           </div>
-          <div class="buttons">
-            <a href="<%= item.item_url %>" target="_blank">
-              <button class="btn btn-primary">詳細</button>
-            </a>
-            <%= form_with url: delete_item_path(@user_item) do |f| %>
-              <%= f.submit "キャンセル", class: "btn btn-warning" %>
-            <% end %>
-          </div>
+          <% if session[:type] != nil %>
+            <div class="buttons">
+              <a href="<%= item.item_url %>" target="_blank">
+                <button class="btn btn-primary">詳細</button>
+              </a>
+              <form action="items/<%= hospital_item.id %>/delete" method="post">
+                <input type="submit" value="キャンセル" class="btn btn-warning">
+              </form>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
