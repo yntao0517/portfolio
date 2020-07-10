@@ -1,0 +1,36 @@
+<% provide(:title, "Support_list") %>
+<h1><%= @hospital.name %>への支援希望リスト</h1>
+
+<div class="row">
+  <% if @hospital_items.present? %>
+    <% @hospital_items.each do |item| %>
+      <div class="item-box">
+        <div class="img">
+          <div class="img-wrap">
+            <% if item.image_url %>
+              <img src="<%= item.image_url %>" alt="商品画像">
+            <% else %>
+              <p>no image</p>
+            <% end %>
+            <div class="card-body">
+              <% users = HsopitalItem.find_by(item_id: item.id, hospital_id: @hospital.id).users.all %>
+              <p><%= users.count %>人の支援表明あり</p>
+              <p class="card-text"><%= item.name.truncate(30) %></p>
+              <p class="card-text"><%= item.price %>円</p>
+            </div>
+            <div class="buttons">
+              <a href="<%= item.item_url %>" target="_blank">
+                <button class="btn btn-primary">詳細</button>
+              </a>
+              <form action="" method="post">
+                <input type="hidden" name="item_id" value="<%= item.id %>">
+                <input type="hidden" name="hospital_id" value="<%= @hospital.id %>">
+                <input type="submit" value="支援者一覧" class="btn btn-warning">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
