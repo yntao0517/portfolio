@@ -35,8 +35,6 @@
               </a>
               <% if logged_in? %>
                 <%= form_with url: support_item_path(current_user) do |f| %>
-                    <%= f.hidden_field :hospital_id, value: @hospital.id %>
-                    <%= f.hidden_field :item_id, value: item.id %>
                     <%= f.submit "支援する", class: "btn btn-warning" %>
                 <% end %>
               <% elsif hospital_logged_in? %>
