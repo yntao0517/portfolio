@@ -23,6 +23,6 @@ class ChatsController < ApplicationController
     else
       id = params[:user_id]
     end
-    redirect_to "/chatroom/#{id}"
+    redirect_to "#{id}/chatroom"
   end
 end

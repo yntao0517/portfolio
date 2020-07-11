@@ -7,7 +7,7 @@
     <ul class="list-group">
       <% @hospital_ids.each do |hospital_id| %>
         <li class="list-group-item">
-          <a href="/chatroom/<%= hospital.id %>"><%= hospital.name %></a>
+          <a href="/<%= hospital.id %>/chatroom"><%= hospital.name %></a>
         </li>
       <% end %>
     </ul>

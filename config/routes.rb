@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   post '/hospital_login',      to: 'hospital_sessions#create'
   delete '/hospital_logout',   to: 'hospital_sessions#destroy'
   get '/search',               to: 'items#search'
+  post '/support_users', to: 'support_lists#users'
   resources :users
   resources :hospitals
   resources :hospital_items, only: [:show]
+  resources :support_lists, only: [:show]
+  resources :user_chats, only: [:show]
+  resources :hospital_chats, only: [:show]
   resources :items, only: [:show] do
     member do
       post '/shortage',            to: 'items#shortage'
@@ -18,6 +22,9 @@ Rails.application.routes.draw do
       post '/delete',              to: 'items#delete', params: :hospital_item
     end
   end
-  resources :support_lists, only: [:show]
-  post '/support_users', to: 'support_lists#users'
+  resources :chats, only: [:new] do
+    member do
+      get '/chatroom',               to: 'chats#chatroom'
+    end
+  end
 end
