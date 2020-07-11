@@ -21,11 +21,11 @@ RSpec.feature "Hospital edit", type: :feature do
   end
 
   scenario "病院は編集に失敗する" do
-  hospital_valid_login(hospital)
-  visit hospital_path(hospital)
-  click_link "プロフィール変更"
-  fill_in "メールアドレス", with: "foo@invalid"
-  click_button "プロフィール更新"
-  expect(hospital.reload.email).not_to eq "foo@invalid"
+    hospital_valid_login(hospital)
+    visit hospital_path(hospital)
+    click_link "プロフィール変更"
+    fill_in "メールアドレス", with: "foo@invalid"
+    click_button "プロフィール更新"
+    expect(hospital.reload.email).not_to eq "foo@invalid"
   end
 end

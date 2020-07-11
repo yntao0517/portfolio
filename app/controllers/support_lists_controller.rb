@@ -1,6 +1,6 @@
 class SupportListsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
+
   def show
     @hospital = Hospital.find(params[:id])
     @hospital_items = @hospital.items.all

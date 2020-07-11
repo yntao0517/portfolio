@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def search
     if params[:keyword]
@@ -21,7 +21,9 @@ skip_before_action :verify_authenticity_token
         @item.hospitals << @hospital
       end
     else
-      @hospital.items.create(name: params[:name], price: params[:price], image_url: params[:image_url], item_code: params[:item_code], item_url: params[:item_url])
+      @hospital.items.create(name: params[:name], price: params[:price],
+                             image_url: params[:image_url], item_code: params[:item_code],
+                             item_url: params[:item_url])
     end
     redirect_back(fallback_location: root_path)
   end
