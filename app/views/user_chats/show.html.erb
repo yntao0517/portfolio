@@ -1,0 +1,15 @@
+<h1>チャットリスト</h1>
+
+<div class="row">
+  <% if @users.nil? %>
+    <p>ユーザーがあなたの病院に支援表明するとチャットできるようになります</p>
+  <% else %>
+    <ul class="list-group">
+      <% @users.each do |user| %>
+        <li class="list-group-item">
+          <a href="/chatroom/<%= user.id %>"><%= user.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
