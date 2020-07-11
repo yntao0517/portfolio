@@ -3,7 +3,6 @@ class CreateChats < ActiveRecord::Migration[6.0]
     create_table :chats do |t|
       t.integer :hospital_id
       t.integer :user_id
-      t.string :from
       t.string :body
 
       t.timestamps
