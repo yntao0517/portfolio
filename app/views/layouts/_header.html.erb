@@ -12,7 +12,7 @@
         <% elsif hospital_logged_in? %>
           <li><%= link_to "必要物資追加", search_path %></li>
           <li><%= link_to "支援者リスト", support_list_path(current_hospital) %></li>
-          <li><%= link_to "チャット", hosptial_chat_path(current_user) %></li>
+          <li><%= link_to "チャット", hospital_chat_path(current_user) %></li>
           <li><%= link_to "登録病院リスト", hospitals_path %></li>
           <li><%= link_to "マイページ", current_hospital %></li>
         <% else %>
