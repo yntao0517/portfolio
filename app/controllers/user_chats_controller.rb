@@ -6,6 +6,5 @@ class UserChatsController < ApplicationController
     @hospital_items.each do |item|
       @hospital_ids.push(item.hospital_id)
     end
-    @hospital_ids.uniq!
   end
 end
