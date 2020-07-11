@@ -35,11 +35,7 @@
               <a href="<%= item.item_url %>" target="_blank">
                 <button class="btn btn-primary">詳細</button>
               </a>
-              <% if logged_in? %>
-                <%= form_with url: support_item_path(current_user) do |f| %>
-                  <%= f.submit "支援する", class: "btn btn-warning" %>
-                <% end %>
-              <% elsif hospital_logged_in? %>
+              <% if hospital_logged_in? %>
                 <%= form_with url: shortage_item_path(current_hospital) do |f| %>
                   <%= f.hidden_field :name, value: item.name %>
                   <%= f.hidden_field :price, value: item.price %>
