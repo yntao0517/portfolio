@@ -1,6 +1,6 @@
 class UserChatsController < ApplicationController
   def show
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     @hospital_items = @user.hospital_items
     @hosptial_ids = []
     @hospital_items.each do |item|
