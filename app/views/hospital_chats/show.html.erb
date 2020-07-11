@@ -1,0 +1,16 @@
+<h1>チャットリスト</h1>
+
+<div class="row">
+  <% if @hospital_ids.blank? %>
+    <p>支援表明するとその病院とチャットできるようになります</p>
+  <% else %>
+    <ul class="list-group">
+      <% @hospital_ids.each do |hosptial_id| %>
+        <% hospital = Hospital.find(hospital_id) %>
+        <li class="list-group-item">
+          <a href="/chatroom/<%= hospital.id %>"><%= hospital.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
