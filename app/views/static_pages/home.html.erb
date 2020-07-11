@@ -14,44 +14,48 @@
     <%= link_to "ユーザー新規登録", signup_path, class: "btn btn-lg btn-primary" %>
     <%= link_to "病院新規登録", new_hospital_path, class: "btn btn-lg btn-warning" %>
   <% end %>
-  <% if @items.present? %>
-    <% @items.each do |item| %>
-      <div class="item-box">
-        <div class="img">
-          <div class="img-wrap">
-            <% if item.image_url %>
-              <img src="<%= item.image_url %>" alt="商品画像">
-            <% else %>
-              <p>no image</p>
-            <% end %>
-            <div class="card-body">
-              <p><%= item.hospitals.count %>つの避難所が求めています</p>
-              <p class="card-text"><%= item.name.truncate(30) %></p>
-              <p class="card-text"><%= item.price %>円</p>
-            </div>
-            <div class="buttons">
-              <a href="<%= item.item_url %>" target="_blank">
-                <button class="btn btn-primary">詳細</button>
-              </a>
-              <% if logged_in? %>
-                <%= form_with url: support_item_path(current_user) do |f| %>
-                    <%= f.submit "支援する", class: "btn btn-warning" %>
-                <% end %>
-              <% elsif hospital_logged_in? %>
-                <%= form_with url: shortage_item_path(current_hospital) do |f| %>
-                  <%= f.hidden_field :name, value: item.name %>
-                  <%= f.hidden_field :price, value: item.price %>
-                  <%= f.hidden_field :image_url, value: item.image_url %>
-                  <%= f.hidden_field :item_code, value: item.item_code %>
-                  <%= f.hidden_field :item_url, value: item.item_url %>
-                  <%= f.submit "不足中", class: "btn btn-warning" %>
-                <% end %>
+  <div class="row">
+    <% if @items.present? %>
+      <% @items.each do |item| %>
+        <div class="item-box">
+          <div class="img">
+            <div class="img-wrap">
+              <% if item.image_url %>
+                <img src="<%= item.image_url %>" alt="商品画像">
               <% else %>
+                <p>no image</p>
               <% end %>
+              <div class="card-body">
+                <p><%= item.hospitals.count %>つの避難所が求めています</p>
+                <p class="card-text"><%= item.name.truncate(30) %></p>
+                <p class="card-text"><%= item.price %>円</p>
+              </div>
+              <div class="buttons">
+                <a href="<%= item.item_url %>" target="_blank">
+                  <button class="btn btn-primary">詳細</button>
+                </a>
+                <% if logged_in? %>
+                  <%= form_with url: support_item_path(current_user) do |f| %>
+                      <%= f.hidden_field :hospital_id, value: @hospital.id %>
+                      <%= f.hidden_field :item_id, value: item.id %>
+                      <%= f.submit "支援する", class: "btn btn-warning" %>
+                  <% end %>
+                <% elsif hospital_logged_in? %>
+                  <%= form_with url: shortage_item_path(current_hospital) do |f| %>
+                    <%= f.hidden_field :name, value: item.name %>
+                    <%= f.hidden_field :price, value: item.price %>
+                    <%= f.hidden_field :image_url, value: item.image_url %>
+                    <%= f.hidden_field :item_code, value: item.item_code %>
+                    <%= f.hidden_field :item_url, value: item.item_url %>
+                    <%= f.submit "不足中", class: "btn btn-warning" %>
+                  <% end %>
+                <% else %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
