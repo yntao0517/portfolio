@@ -1,4 +1,5 @@
 <% provide(:title, @user.name) %>
+<h1><%= @user.name %>のマイページ</h1>
 
 <div class="row">
   <div class="hospital-box">
@@ -9,7 +10,7 @@
       </h3>
       <div>
         <p><span class="glyphicon glyphicon-envelope"><%= @user.email %></span></p>
-        <p><span class="glyphicon glyphicon-home"></span><%= @user.address %></p>
+        <p><span class="glyphicon glyphicon-home"><%= @user.address %></span></p>
         <p><span class="glyphicon glyphicon-earphone"><%= @user.phone_number %></span></p>
         <div>
           <%= link_to "プロフィール変更", edit_user_path(current_user) %>
