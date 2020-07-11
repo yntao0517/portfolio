@@ -13,18 +13,11 @@ Rails.application.routes.draw do
   resources :hospitals
   resources :hospital_items, only: [:show]
   resources :support_lists, only: [:show]
-  resources :user_chats, only: [:show]
-  resources :hospital_chats, only: [:show]
   resources :items, only: [:show] do
     member do
       post '/shortage',            to: 'items#shortage'
       post '/support',             to: 'items#support'
       post '/delete',              to: 'items#delete', params: :hospital_item
-    end
-  end
-  resources :chats, only: [:new] do
-    member do
-      get '/chatroom',               to: 'chats#chatroom'
     end
   end
 end
