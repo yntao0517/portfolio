@@ -9,7 +9,8 @@ class HospitalPasswordChangesController < ApplicationController
     if params[:hospital][:password].empty?
       @hospital.errors.add(:password, :blank)
       render 'edit'
-    elsif @hospital.authenticate(params[:hospital][:old_password]) && @hospital.update(hospital_params)
+    elsif @hospital.authenticate(params[:hospital][:old_password]) &&
+       @hospital.update(hospital_params)
       hospital_log_in @hospital
       flash[:success] = "パスワードは変更されました。"
       redirect_to @hospital
@@ -20,6 +21,7 @@ class HospitalPasswordChangesController < ApplicationController
   end
 
   private
+
   def hospital_params
     params.require(:hospital).permit(:password, :password_confirmation)
   end
