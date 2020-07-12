@@ -15,6 +15,7 @@ gem 'rakuten_web_service'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'payjp'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
