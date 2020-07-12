@@ -1,0 +1,2 @@
+class HospitalPasswordChangesController < ApplicationController
+end

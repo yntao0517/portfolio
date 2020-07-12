@@ -1,0 +1,2 @@
+module HospitalPasswordChangesHelper
+end
