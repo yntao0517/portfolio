@@ -1,0 +1,36 @@
+<% provide(:title, "Pay") %>
+
+<h1><%= @user.name %>の支援表明一覧</h1>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>寄付先</th>
+        <th>値段</th>
+        <th>詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hospital_items.each do |hosptal_item| %>
+        <% item = Item.find(hospital_item.item_id) %>
+        <% hospital = Hospital.find(hospital_item.hospital_id) %>
+          <tr>
+            <td><%= item.name.truncate(30) %></td>
+            <td><%= hospital.name %>に寄付</td>
+            <td><%= item.price %>円</td>
+            <td><a href="<%= item.item_url %>" target="_blank">詳細</a></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <% @sum += item.price.to_i %>
+    <form action="/pay" method="post">
+      <input type="hidden" name="pay_price" value="<%= @sum %>">
+      <input type="submit" value="お支払い" class="btn btn-primary">
+    </form>
+  </div>
+  <p>合計金額： <%= @sum %>円</p>
+</div>

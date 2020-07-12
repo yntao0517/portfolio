@@ -1,6 +1,7 @@
 <% provide(:title, "Support_item_list") %>
 
 <h1><%= @user.name %>の支援表明物資一覧</h1>
+<%= link_to "お支払いページへ", pay_path, class: "btn btn-primary" %>
 
 <div class="row">
   <% @hospital_items.each do |hospital_item| %>
