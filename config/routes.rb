@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/search',               to: 'items#search'
   post '/support_users',       to: 'support_lists#users'
   post '/user_pay',            to: 'pays#pay'
+  get '/pay_fin',              to: 'pays#pay_fin'
   resources :users
   resources :hospitals
   resources :password_changes, only: [:edit, :update]

@@ -16,5 +16,9 @@ class PaysController < ApplicationController
       currency: "jpy",
       card: params['payjp-token']
     )
+    redirect_to pay_fin_path
+  end
+
+  def pay_fin
   end
 end
