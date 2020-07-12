@@ -29,8 +29,9 @@
   <div>
     <p>合計金額： <span class="text-danger h3"><%= @sum %>円</span></p>
     
-    <%= form_with url: user_pay_path do %>
+    <%= form_with url: user_pay_path do |f| %>
       <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f4c5fda13b17c3f3d475118b"></script>
+      <%= f.hidden_field :pay_price, value: @sum %>
     <% end %>
   </div>
 </div>
