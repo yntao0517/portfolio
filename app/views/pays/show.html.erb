@@ -21,12 +21,13 @@
             <td><%= hospital.name %>に寄付</td>
             <td><%= item.price %>円</td>
             <td><a href="<%= item.item_url %>" target="_blank">詳細</a></td>
+            <% @sum += item.price.to_i %>
           </tr>
       <% end %>
     </tbody>
   </table>
   <div>
-    <% @sum += item.price.to_i %>
+    
     <form action="/pay" method="post">
       <input type="hidden" name="pay_price" value="<%= @sum %>">
       <input type="submit" value="お支払い" class="btn btn-primary">
