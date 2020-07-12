@@ -29,9 +29,8 @@
   <div>
     <p>合計金額： <span class="text-danger h3"><%= @sum %>円</span></p>
     
-    <form action="/pay" method="post">
-      <input type="hidden" name="pay_price" value="<%= @sum %>">
-      <input type="submit" value="お支払い" class="btn btn-primary">
-    </form>
+    <%= form_with url: user_pay_path do %>
+      <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_f4c5fda13b17c3f3d475118b"></script>
+    <% end %>
   </div>
 </div>

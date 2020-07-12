@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post '/hospital_login',      to: 'hospital_sessions#create'
   delete '/hospital_logout',   to: 'hospital_sessions#destroy'
   get '/search',               to: 'items#search'
-  post '/support_users', to: 'support_lists#users'
+  post '/support_users',       to: 'support_lists#users'
+  post '/user_pay',            to: 'pays#pay'
   resources :users
   resources :hospitals
   resources :password_changes, only: [:edit, :update]
