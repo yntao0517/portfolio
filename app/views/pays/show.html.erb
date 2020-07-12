@@ -4,7 +4,7 @@
 
 <div class="row">
   <table class="table table-bordered">
-    <thead class="thead-light">
+    <thead>
       <tr>
         <th>商品名</th>
         <th>寄付先</th>
@@ -17,7 +17,7 @@
         <% item = Item.find(hospital_item.item_id) %>
         <% hospital = Hospital.find(hospital_item.hospital_id) %>
           <tr>
-            <td><%= item.name.truncate(30) %></td>
+            <td><%= item.name.truncate(60) %></td>
             <td><%= hospital.name %>に寄付</td>
             <td><%= item.price %>円</td>
             <td><a href="<%= item.item_url %>" target="_blank">詳細</a></td>
