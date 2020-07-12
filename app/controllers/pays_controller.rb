@@ -8,4 +8,7 @@ class PaysController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def pay
+  end
 end
