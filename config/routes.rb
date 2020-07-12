@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/support_users', to: 'support_lists#users'
   resources :users
   resources :hospitals
+  resources :password_changes, only: [:edit, :update]
   resources :hospital_items, only: [:show]
   resources :support_lists, only: [:show]
   resources :items, only: [:show] do
