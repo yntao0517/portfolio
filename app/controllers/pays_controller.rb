@@ -11,7 +11,7 @@ class PaysController < ApplicationController
 
   def pay
     Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
-    Payjp::Change.create(
+    Payjp::Charge.create(
       amount: 7480,
       currency: "jpy",
       card: params['payjp-token']
