@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :hospitals
   resources :password_changes, only: [:edit, :update]
+  resources :hospital_password_changes, only: [:edit, :update]
   resources :hospital_items, only: [:show]
   resources :support_lists, only: [:show]
   resources :items, only: [:show] do

@@ -14,7 +14,7 @@ class PasswordChangesController < ApplicationController
       flash[:success] = "パスワードは変更されました。"
       redirect_to @user
     else
-      flash[danger] = "一致しない項目があります。"
+      flash[:danger] = "一致しない項目があります。"
       render 'edit'
     end
   end
