@@ -1,23 +1,32 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse navbar-expand-lg">
   <div class="container">
     <%= link_to "Coid", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "支援物資一覧", item_path(current_user) %></li>
-          <li><%= link_to "登録病院リスト", hospitals_path %></li>
-          <li><%= link_to "マイページ", current_user %></li>
-        <% elsif hospital_logged_in? %>
-          <li><%= link_to "必要物資追加", search_path %></li>
-          <li><%= link_to "支援者リスト", support_list_path(current_hospital) %></li>
-          <li><%= link_to "登録病院リスト", hospitals_path %></li>
-          <li><%= link_to "マイページ", current_hospital %></li>
-        <% else %>
-          <li><%= link_to "病院ログイン", hospital_login_path %></li>
-          <li><%= link_to "ユーザーログイン", login_path %></li>
-        <% end %>
-      </ul>
+    <nav class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path %></li>
+          <% if logged_in? %>
+            <li class="nav-item"><%= link_to "支援物資一覧", item_path(current_user), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "登録病院リスト", hospitals_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "マイページ", current_user, class: "nav-link" %></li>
+          <% elsif hospital_logged_in? %>
+            <li class="nav-item"><%= link_to "必要物資追加", search_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "支援者リスト", support_list_path(current_hospital), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "登録病院リスト", hospitals_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "マイページ", current_hospital, class: "nav-link" %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "病院ログイン", hospital_login_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "ユーザーログイン", login_path, class: "nav-link" %></li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
   </div>
 </header>
