@@ -10,7 +10,7 @@ RSpec.describe "HospitalPasswordChanges", type: :request do
         get edit_hospital_password_change_path(hospital)
         expect(response).to be_successful
       end
-    end 
+    end
 
     context "ログインしていない病院の場合" do
       it "ログイン画面にリダイレクトすること" do
