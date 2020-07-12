@@ -3,8 +3,8 @@
 <h1><%= @user.name %>の支援表明一覧</h1>
 
 <div class="row">
-  <table class="table">
-    <thead>
+  <table class="table table-bordered">
+    <thead class="thead-light">
       <tr>
         <th>商品名</th>
         <th>寄付先</th>
@@ -27,11 +27,11 @@
     </tbody>
   </table>
   <div>
+    <p>合計金額： <span class="text-danger h3"><%= @sum %>円</span></p>
     
     <form action="/pay" method="post">
       <input type="hidden" name="pay_price" value="<%= @sum %>">
       <input type="submit" value="お支払い" class="btn btn-primary">
     </form>
   </div>
-  <p>合計金額： <%= @sum %>円</p>
 </div>
