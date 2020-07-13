@@ -42,7 +42,7 @@ class HospitalsController < ApplicationController
   def destroy
     Hospital.find(params[:id]).destroy
     flash[:success] = "病院を削除しました"
-    redirect_to hospitals_url
+    redirect_to root_path
   end
 
   private
