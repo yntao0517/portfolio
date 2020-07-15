@@ -12,6 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About", about_path %></li>
           <% if logged_in? %>
             <li class="nav-item"><%= link_to "支援物資一覧", item_path(current_user), class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "登録病院リスト", hospitals_path, class: "nav-link" %></li>
